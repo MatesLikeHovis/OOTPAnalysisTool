@@ -36,14 +36,99 @@ The batter analysis tool is a system for weighing the relative value of players 
 
 Let's have a look at what happens within the tool:
 
-Each of the weights represents the value that you give to that attribute.  There are two types of attributes, the **subattributes** like Power, Avoid K's or BABIP, and the **main attributes** like Offense, Defense and Running.  Each subattribute slider sets the relative value of that subattribute within the main attribute, and then the main attribute slider lets you set the relative value compared to the other two.  You may activate or deactivate various weights depending on your needs, so that if you are not concerned with a particular value, it will not be used.  Remember that removing subattributes will not reduce the overall value of the main attribute it corresponds to, so adjusting BABIP will not change the weight Offense has compared to Defense.  It is recommended that you set your subattribute values and activation switches, then adjust the main attributes to get your desired player.
+* Each of the weights represents the value that you give to that attribute.  There are two types of attributes, the **subattributes** like Power, Avoid K's or BABIP, and the **main attributes** like Offense, Defense and Running.  Each subattribute slider sets the relative value of that subattribute within the main attribute, and then the main attribute slider lets you set the relative value compared to the other two.  You may activate or deactivate various weights depending on your needs, so that if you are not concerned with a particular value, it will not be used.  Remember that removing subattributes will not reduce the overall value of the main attribute it corresponds to, so adjusting BABIP will not change the weight Offense has compared to Defense.  It is recommended that you set your subattribute values and activation switches, then adjust the main attributes to get your desired player.
 
-The Card Value presets at the bottom of the screen, and the minimum and maximum slider directly above the presets, help you to select the card value you are looking for, especially useful for particular tournaments.  The filter is always *inclusive* of the minimum and maximum values, so if you only want Iron players, the slider should be (and will be if you click the Iron preset button) set to a minimum of 40.0, and a maximum of 59.9, as 60.0 values would result in the lowest value of Bronze players.  There is a selector switch to indicate if this card value filter should be active, or if all players should be shown.
+* The Card Value presets at the bottom of the screen, and the minimum and maximum slider directly above the presets, help you to select the card value you are looking for, especially useful for particular tournaments.  The filter is always *inclusive* of the minimum and maximum values, so if you only want Iron players, the slider should be (and will be if you click the Iron preset button) set to a minimum of 40.0, and a maximum of 59.9, as 60.0 values would result in the lowest value of Bronze players.  There is a selector switch to indicate if this card value filter should be active, or if all players should be shown.
 
-The position selector at the very bottom of the window is used to select the position you are searching for.  If you are unconcerned with defensive values, you should probably set this value to **DH**, which will always return a defensive value of 0.  The position search is *'main position agnostic'*, meaning that it is not concerned with the listed main position of any players, but only with their defensive values at that position.  If you are looking for Left Fielders, you may be interested to see how Aaron Judge would compare with other natural Left Fielders, and this tool does not discriminate against players' defensive values at other positions.  Also - pitchers and two-way players will be presented if they have defensive values at that position, or all players will be shown if **DH** is selected.
+* The position selector at the very bottom of the window is used to select the position you are searching for.  If you are unconcerned with defensive values, you should probably set this value to **DH**, which will always return a defensive value of 0.  The position search is *'main position agnostic'*, meaning that it is not concerned with the listed main position of any players, but only with their defensive values at that position.  If you are looking for Left Fielders, you may be interested to see how Aaron Judge would compare with other natural Left Fielders, and this tool does not discriminate against players' defensive values at other positions.  Also - pitchers and two-way players will be presented if they have defensive values at that position, or all players will be shown if **DH** is selected.
 
-On the right side of the window are some useful tools.  First are the **Import Weights JSON** and **Export Weights JSON** buttons.  These export or import 'preset' values that you may want to go back to, if you have card shapes of power or contact hitters, or with relative levels of defensive emphasis.  These save and load as *json* files, which are light-weight text files representing the data shown on the app.  Be sure to load only JSON files associated with batters.  The export and import buttons will default to the folder *'Data\Presets\Batters'* to help prevent any errors.
+* On the right side of the window are some useful tools.  First are the **Import Weights JSON** and **Export Weights JSON** buttons.  These export or import 'preset' values that you may want to go back to, if you have card shapes of power or contact hitters, or with relative levels of defensive emphasis.  These save and load as *json* files, which are light-weight text files representing the data shown on the app.  Be sure to load only JSON files associated with batters.  The export and import buttons will default to the folder *'Data\Presets\Batters'* to help prevent any errors.
 
-Below the JSON preset buttons are buttons for **Standard (No Platoon)** and **Splits (vR/vL) Active**.  If Standard is selected, then the results will be based on the players' general scores for each offensive attribute.  If Splits is selected, then two windows will be generated, one with scores generated based on the players' scores versus Right-Handed pitching, and one for versus left.  This can be useful for determining a good platooning team at positions where you do not have a dominant player that should play against both left and right-handed pitching, or if you are looking for substitute players that will do well against specialist relievers.
+* Below the JSON preset buttons are buttons for **Standard (No Platoon)** and **Splits (vR/vL) Active**.  If Standard is selected, then the results will be based on the players' general scores for each offensive attribute.  If Splits is selected, then two windows will be generated, one with scores generated based on the players' scores versus Right-Handed pitching, and one for versus left.  This can be useful for determining a good platooning team at positions where you do not have a dominant player that should play against both left and right-handed pitching, or if you are looking for substitute players that will do well against specialist relievers.
 
+*The **Only My Cards** button should be checked if you want to include only those cards which you own, taken from the custom csv file uploaded.  It wouldn't be recommended to check this if you have not loaded a custom csv file.
+
+* Finally, the pink **Generate List** button at the bottom will - create the list of players!  More on that below.
+
+## The Pitcher Analysis Tool
+The pitcher analysis tool is, like the batter tool, a system for weighing the relative value of pitchers.  The window is similar to the Batter Analysis Tool in its construction, with the same slider sets, JSON export and import buttons, and a generate list button.  It does have the following unique characteristics:
+
+* Within pitcher ratings, rather than using subattributes, as there is only one true attribute broken down into subattributes **(Movement)**, all of the attributes are treated equally.  
+* Rather than field positions, the pitcher 'position' dropdown menu includes options for **SP**, **RP** and **CL** for single pitcher type searches.  It also includes **RP/CL** to search just relievers, and **SP/RP/CL** to search all pitchers.
+* There are no platoon or split buttons, and all searches use the data against all batters without versus left or right consideration.
+
+## The Team Builder Tool
+The team builder tool is very similar to the batter tool, with the same slider sets and weighing methods, but there are a few unique considerations:
+
+* At the bottom of the screen is a set of 'radio' buttons to select each of the positions on a team, from *'C'* to *'DH'*.
+* The sliders on the screen show the weights for **ONLY** the position selected.  If you have the *'C'* button selected, you will be adjusting the weights for the catcher position.
+* If you select another position button, the weight sliders will move to show the current status of **THAT** position.
+* The **Export Weights JSON** and **Import Weights JSON** buttons will load or save data from or to **THAT** position's sliders only.
+* To save the overall team set of weights, use the **Export Team Weights JSON** button below the **Export Weights JSON** button, and to load the overall team set of weights, use the similarly titled **Import** button.
+
+## The Batter / TeamBuilder Results Windows
+After clicking the **Generate List** button, one or two lists will be generated using your request details.  Contained will be familiar information, like the name of the player, but it is useful to know what the app means by each column.  First, we should look at what is calculated in the engine whenever a list is generated:
+
+* An estimated BABIP percentage, calculated from *BABIP* Scores
+* An estimated percentage per plate appearance of a Strikeout, calculated from *Avoid K* Scores
+* An estimated percentage per plate appearance of a Walk, calculated from *Eye* Scores
+* An estimated percentage per plate appearance of a Home Run, calculated from *Power* Scores
+* An estimated percentage per ball in play of any Extra-base hit, calculated from *Gap Power* Scores
+* After estimating those percentages, the number of hits, at-bats per plate appearance, balls-in-play per plate appearance, and similar internal statistics are generated.
+
+  Once these statistics are generated internally, the table is created:
+
+* **Name**: The name of the player given on the card.
+* **ID**: The unique card ID number for the card.
+* **Year**: The year of the card.  For *Live* players, this is 2024.
+* **OVR**: The 'overall' value of the card based on *YOUR* weights.  This represents the results of the weights you provided in the Analysis Tool applied to each player.
+* **VAL**: The 'card' value on the front of the card.  This should already be familiar to you!  This value determines the type of card (i.e., Iron, Bronze, etc.) but may not be directly applicable to player performance.
+* **OFF**: The 'offense' aggregate value.  This is calculated by taking all of your offensive sub-attribute weights and calculating a new overall offensive value based on those weights.  Represents overall offensive value based on your criteria.
+* **DEF**: The 'defense' value.  This is calculated by looking only at the 'Defense at **' value for that player at only that position.
+* **RUN**: The 'running' aggregate value.  This is calculated by taking the three running sub-attribute weights and calculating a new overall running value based on those weights.  Represents overall base-running and stealing value based on your criteria.
+* **AVG**: The first **projected** value, representing the player's batting average, calculated from estimated number of hits divided by estimated at-bats.
+* **OBP**: Represents the player's On-base percentage, calculated from estimated hits and walks divided by estimated plate appearances.
+* **SLG**: Represents the player's Slugging percentage.  The number of total bases expected is calculated by multiplying the hits on balls-in-play by the percentage chance for extra base hits per hit on a ball-in-play, multiplying this by an arbitrary 2.4 TB per non-Home Run extra base hit (The ratio of doubles to triples is hard to predict based on scores, so a fixed value was given) with singles and 4 total bases per home run added.
+* **OPS**: Represents the player's OBP + SLG.  Calculated by adding these two scores.
+* **HR**: Represents the number of home runs that the player would be estimated to hit over 600 Plate Appearances.
+
+  You may sort by any column by clicking on the *Header* of the column.  Click again to swap the order to sort.
+
+###Important###
+Bear in mind that these statistics are generated by linear regression of the relationship between real-world statistics and scores.  Scores are likely based on multi-year statistics.  Linear regression creates a **flattened** line of results, which removes the natural variation from a number of factors.  You **WILL NOT** actually see these results in game.  The statistics are provided as a kind of laboratory score of what would happen in a theoretical world where players are playing against a 'league average' of pitchers, without considering lineup placement, management, or variations in opposing pitching.  All of these will make the actual statistics vary considerably.  Think of these statistics as a kind of score to help, for comparison and entertainment purposes only.
+
+## The Pitcher Results Window
+After clicking the **Generate List** button, a list will be generated using your request details.
+
+Contained will be familiar information, like the name of the player, but it is useful to know what the app means by each column.  First, we should look at what is calculated in the engine whenever a list is generated:
+
+* An estimated BABIP percentage, calculated from *pBABIP* Scores
+* An estimated percentage per plate appearance of a Strikeout, calculated from *Stuff* Scores
+* An estimated percentage per plate appearance of a Walk, calculated from *Control* Scores
+* An estimated percentage per plate appearance of a Home Run, calculated from *HRA* Scores
+* After estimating those percentages, the number of hits, at-bats per plate appearance, balls-in-play per plate appearance, and similar internal statistics are generated.
+
+  Once these statistics are generated internally, the table is created:
+
+* **Name**: The name of the player given on the card.
+* **ID**: The unique card ID number for the card.
+* **Year**: The year of the card.  For *Live* players, this is 2024.
+* **OVR**: The 'overall' value of the card based on *YOUR* weights.  This represents the results of the weights you provided in the Analysis Tool applied to each player.
+* **VAL**: The 'card' value on the front of the card.  This should already be familiar to you!  This value determines the type of card (i.e., Iron, Bronze, etc.) but may not be directly applicable to player performance.
+* **STF**: The 'Stuff' value.  Comes directly from card data.
+* **MVM**: The 'Movement' aggregate value.  This is calculated by weighing the two Movement values you set earlier.
+* **CNT**: The 'Control' value.   
+* **OTH**: The 'Other' aggregate value, calculated by weighing the attributes not directly related to pitching results (i.e., Stamina, Hold, Defense).
+* **pAVG**: The first **projected** value, representing opposing batters' batting average, calculated from estimated number of hits divided by estimated at-bats.
+* **pOBP**: Represents opposing batters' On-base percentage, calculated from estimated hits and walks divided by estimated plate appearances.
+* **pSLG**: Represents opposing batters' Slugging percentage.  Calculated using 'league average' extra-base hits per plate appearance, as there is no equivalent to 'Gap Power' for pitchers.
+* **pOPS**: Represents OBP + SLG of opposing batters.  Calculated by adding these two scores.
+* **HR**: Represents the number of home runs that the pitcher would be estimated to allow over 600 Batters Faced.
+* **BB**: Represents the number of walks that the pitcher would be estimated to allow over 600 Batters Faced.
+* **SO**: Represents the number of strikeouts that the pitcher would be estimated to allow over 600 Batters Faced.
+
+  You may sort by any column by clicking on the *Header* of the column.  Click again to swap the order to sort.
+
+###Important###
+Bear in mind that these statistics are generated by linear regression of the relationship between real-world statistics and scores.  Scores are likely based on multi-year statistics.  Linear regression creates a **flattened** line of results, which removes the natural variation from a number of factors.  You **WILL NOT** actually see these results in game.  The statistics are provided as a kind of laboratory score of what would happen in a theoretical world where players are playing against a 'league average' of pitchers, without considering lineup placement, management, or variations in opposing pitching.  All of these will make the actual statistics vary considerably.  Think of these statistics as a kind of score to help, for comparison and entertainment purposes only.
 

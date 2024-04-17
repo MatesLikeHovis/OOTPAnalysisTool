@@ -1,6 +1,8 @@
 # OOTPAnalysisTool
 A companion app to bring even more fun to the OOTP Baseball 25 experience by helping to weight and rate players for tournaments, to build teams more quickly, and to have fun playing with projected stats, ratings, and more baseball.
 
+### Quick Disclaimer
+First and foremost, this is (hopefully clearly) not a replacement for OOTP 25, nor for OOTP 25 Go, nor for any other OOTP products.  It's just a tool that I wanted because I thought it would help me have more fun with the game, and I was right!  If you have fun with it, I'm delighted, and if not - I'm sorry that it isn't for you!  Anyway - enjoy the game...   
 
 ## Basic Usage
 The anticipated use of this app is to help build teams for tournaments and gameplay in OOTP Baseball 25's Perfect Team game mode.  Tournaments restrict the 'Card Value' ratings of players to specific amounts, and within those card value ratings, there are large gaps in the actual quality of players.  It can be hard to predict which ratings are more important than others: would pitchers with very low control ratings, but high stuff ratings (i.e., lots of walks but lots of strikeouts) perform better or worse than pitchers with ratings which are generally in the middle?  This app doesn't claim to answer that question, but is intended to provide a tool to explore what we would expect to happen, by using data derived from real-world experience and how it aligns with in-game ratings, so that managers can engage with the game in, hopefully, new and fun ways.
